@@ -1,0 +1,10 @@
+{
+  "name": "com.famtosha.unitytools",
+  "version": "1.0.0",
+  "displayName": "Unity tools",
+  "description": "Tools for unity",
+  "unity": "2020.3",
+  "author": {
+	"name": "Famtosha"
+	}
+}
