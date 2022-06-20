@@ -7,36 +7,52 @@ namespace UnityTools
     public class Timer
     {
         [SerializeField] private float _coolDown;
-        private float cdLeft;
 
-        public bool isReady => cdLeft < 0;
-        public float left => cdLeft;
+        private float cooldDownLeft;
 
-        public void UpdateTimer(float time = -1)
+        public bool isReady => IsReady();
+        public float left => cooldDownLeft;
+        public float normalized => Normlized();
+
+        public Timer(float coolDown)
         {
-            if (time == -1) time = Time.deltaTime;
-            cdLeft -= time;
+            _coolDown = coolDown;
+        }
+
+        public bool IsReady()
+        {
+            return cooldDownLeft < 0;
+        }
+
+        public float Normlized()
+        {
+            return 1 - (cooldDownLeft / _coolDown);
+        }
+
+        public void UpdateTimer()
+        {
+            cooldDownLeft -= Time.deltaTime;
+        }
+
+        public void UpdateTimer(float time)
+        {
+            cooldDownLeft -= time;
+        }
+
+        public void Reset(float newCoolDown)
+        {
+            _coolDown = newCoolDown;
+            Reset();
         }
 
         public void Reset()
         {
-            cdLeft = _coolDown;
-        }
-
-        public void Reset(float newCD)
-        {
-            _coolDown = newCD;
-            Reset();
+            cooldDownLeft = _coolDown;
         }
 
         public void End()
         {
-            cdLeft = 0;
-        }
-
-        public Timer(float cd)
-        {
-            _coolDown = cd;
+            cooldDownLeft = 0;
         }
     }
 }
