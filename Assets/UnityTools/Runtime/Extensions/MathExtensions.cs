@@ -2,7 +2,7 @@
 
 namespace UnityTools.Extentions
 {
-    public static class MathExtentions
+    public static class MathExtensions
     {
         public static float PingPong(this float value, float length)
         {

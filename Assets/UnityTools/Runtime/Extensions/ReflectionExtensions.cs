@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace UnityTools.Extentions
 {
-    public static class ReflectionHelpers
+    public static class ReflectionExtensions
     {
         public static Type[] GetAllDerivedTypes(this AppDomain aAppDomain, Type baseType)
         {

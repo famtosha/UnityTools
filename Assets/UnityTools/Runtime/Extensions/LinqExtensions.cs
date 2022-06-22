@@ -5,7 +5,7 @@ using Random = UnityEngine.Random;
 
 namespace UnityTools.Extentions
 {
-    public static class LinqExtentions
+    public static class LinqExtensions
     {
         public static IEnumerable<T> NotNull<T>(this IEnumerable<T> ts)
         {

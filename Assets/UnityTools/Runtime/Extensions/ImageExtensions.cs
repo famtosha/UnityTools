@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace UnityTools.Extentions
 {
-    public static class ImageExtentions
+    public static class ImageExtensions
     {
         public static void SetSpriteWithoutBackground(this Image image, Sprite sprite)
         {

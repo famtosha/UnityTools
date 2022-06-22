@@ -2,7 +2,7 @@
 
 namespace UnityTools.Extentions
 {
-    public static class RenderTextureExtention
+    public static class RenderTextureExtensions
     {
         public static Texture2D ToTexture2D(this RenderTexture renderTexture)
         {

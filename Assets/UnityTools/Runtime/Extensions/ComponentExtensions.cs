@@ -6,7 +6,7 @@ using Object = UnityEngine.Object;
 
 namespace UnityTools.Extentions
 {
-    public static class ComponentExtentions
+    public static class ComponentExtensions
     {
         public static bool TryGetComponentInParent<T>(this Collision obj, out T result)
         {

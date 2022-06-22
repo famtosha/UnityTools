@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace UnityTools.Extentions
 {
-    public static class AudioSourceExtentions
+    public static class AudioSourceExtensions
     {
         public static void PlayOneShot(this AudioSource source, IEnumerable<AudioClip> clips)
         {
