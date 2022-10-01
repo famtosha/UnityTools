@@ -71,3 +71,7 @@ Packages/packages-lock.json
 !*.obj
 # Strange things
 *.unitypackage.meta
+/Assets/Plugins
+/Assets/Resources
+/Assets/Plugins.meta
+/Assets/Resources.meta
