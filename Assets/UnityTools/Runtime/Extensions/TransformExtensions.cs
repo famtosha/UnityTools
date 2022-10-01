@@ -21,44 +21,37 @@ namespace UnityTools.Extentions
 
         public static int GetGlobalSiblingIndexCorrect(this Transform transform)
         {
-            var _map = new List<Transform>(1024);
-
-            var roots = Object
-                .FindObjectsOfType<GameObject>()
-                .Select(x => x.transform.root)
-                .Distinct()
-                .OrderBy(x => x.GetSiblingIndex());
-
-            roots.ForEach(Map);
-
-            return _map.IndexOf(transform);
-
-            void Map(Transform obj)
-            {
-                _map.Add(obj);
-                obj.GetChildrens().ForEach(Map);
-            }
+            var map = BuildMap();
+            return map.IndexOf(transform);
         }
 
         public static List<int> GetGlobalSiblingIndexCorrect(this List<Transform> transforms)
         {
-            var _map = new List<Transform>(1024);
+            var map = BuildMap();
+            return transforms.Select(x => map.IndexOf(x)).ToList();
+        }
 
-            var roots = Object
+        private static List<Transform> BuildMap()
+        {
+            var map = new List<Transform>(1024);
+            var roots = GetRoots();
+            roots.ForEach(Map);
+            return map;
+
+            void Map(Transform obj)
+            {
+                map.Add(obj);
+                obj.GetChildrens().ForEach(Map);
+            }
+        }
+
+        private static IEnumerable<Transform> GetRoots()
+        {
+            return Object
                 .FindObjectsOfType<GameObject>()
                 .Select(x => x.transform.root)
                 .Distinct()
                 .OrderBy(x => x.GetSiblingIndex());
-
-            roots.ForEach(Map);
-
-            return transforms.Select(x => _map.IndexOf(x)).ToList();
-
-            void Map(Transform obj)
-            {
-                _map.Add(obj);
-                obj.GetChildrens().ForEach(Map);
-            }
         }
     }
 }
