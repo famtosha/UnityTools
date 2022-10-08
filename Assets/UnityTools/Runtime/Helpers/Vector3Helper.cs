@@ -4,6 +4,16 @@ namespace UnityTools.Helpers
 {
     public static class Vector3Helper
     {
+        public static float GetPathLength(Vector3[] path)
+        {
+            var result = 0f;
+            for (int i = 0; i < path.Length - 1; i++)
+            {
+                result += Vector3.Distance(path[i], path[i + 1]);
+            }
+            return result;
+        }
+
         public static Vector3 GetRandomVector3()
         {
             return new Vector3(Random.Range(-1, 1f), Random.Range(-1, 1f), Random.Range(-1, 1f)).normalized;

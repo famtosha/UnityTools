@@ -52,5 +52,12 @@ namespace UnityTools.Extentions
             transform.localScale = TweenHelper.zeroSize;
             return transform.DOScale(temp, duration);
         }
+
+        public static Tweener DoPickup(this Transform objectToPickup, Transform point, float duration)
+        {
+            objectToPickup.transform.parent = point;
+            objectToPickup.transform.DOLocalMove(Vector3.zero, duration);
+            return objectToPickup.transform.DOLocalRotate(Vector3.zero, 0.5f);
+        }
     }
 }
